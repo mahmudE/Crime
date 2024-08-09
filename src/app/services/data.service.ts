@@ -12,6 +12,9 @@ import { ItemUpdateService } from './item-update.service';
 export class DataService {
 
   // private news$ = 'http://localhost:5000/api/allnews';
+
+
+  
   private news$ = 'https://newsapi-hi0n.onrender.com/api/allnews';
 
   constructor(public http: HttpClient, public storage: Storage, public router: Router, private itemUpdateService: ItemUpdateService) { }
