@@ -15,7 +15,7 @@ export class DataService {
 
 
   
-  private news$ = 'https://newsapi-hi0n.onrender.com/api/allnews';
+  private news$ = 'https://newsapi-9opl.onrender.com/api/allnews';
 
   constructor(public http: HttpClient, public storage: Storage, public router: Router, private itemUpdateService: ItemUpdateService) { }
 
