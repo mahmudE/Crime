@@ -1,0 +1,7 @@
+{
+  "name": "cyberCrimeRepoter",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
