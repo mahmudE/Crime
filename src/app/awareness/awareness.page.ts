@@ -20,7 +20,7 @@ export class AwarenessPage implements OnInit {
   async presentAlert() {
     const alert = await this.alertController.create({
       // header: 'Alert Header',
-      message: 'This page provides list of Cyber Frauds, the techniques used by attackers and how to prevent them.',
+      message: 'This page provides list of Crimes and Cyber Frauds, the techniques used by attackers and how to prevent them.',
       buttons: ['Proceed']
     });
 
