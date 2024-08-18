@@ -12,7 +12,7 @@ const config: CapacitorConfig = {
       android: {
         compileSdkVersion: 34, // Set the desired compile SDK version
         targetSdkVersion: 34, // Set the desired target SDK version
-        minSdkVersion: 21 // Set the desired minimum SDK version
+        minSdkVersion: 24 // Set the desired minimum SDK version
       }
     }
   }
