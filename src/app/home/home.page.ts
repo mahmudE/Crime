@@ -32,10 +32,16 @@ export class HomePage implements OnInit {
     );
   }
 
+  async checkLocationPermission() {
+    const { location } = await Geolocation.checkPermissions();
+    return location === 'granted';
+  }
+
   async requestLocationPermission() {
     try {
-      const permission = await Geolocation.requestPermissions();
-      return permission.location === 'granted';
+      const { location } = await Geolocation.requestPermissions();
+      console.log('Location permission status:', location); // Log permission status
+      return location === 'granted';
     } catch (error) {
       console.error('Error requesting location permission:', error);
       return false;
@@ -43,15 +49,19 @@ export class HomePage implements OnInit {
   }
 
   async sendSOS() {
-    const permissionGranted = await this.requestLocationPermission();
+    const permissionGranted = await this.checkLocationPermission();
+    
     if (!permissionGranted) {
-      const alert = await this.alertController.create({
-        header: 'Permission Denied',
-        message: 'Location permission is required to send a distress message.',
-        buttons: ['OK']
-      });
-      await alert.present();
-      return;
+      const permissionRequested = await this.requestLocationPermission();
+      if (!permissionRequested) {
+        const alert = await this.alertController.create({
+          header: 'Permission Denied',
+          message: 'Location permission is required to send a distress message. Please enable it in your device settings.',
+          buttons: ['OK']
+        });
+        await alert.present();
+        return;
+      }
     }
 
     try {
